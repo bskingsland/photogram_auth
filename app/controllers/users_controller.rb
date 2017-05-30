@@ -9,4 +9,8 @@ class UsersController < ApplicationController
     render("users/show.html.erb")
   end
 
+  def mylikes
+    render("users/my_likes.html.erb")
+  end
+
 end
