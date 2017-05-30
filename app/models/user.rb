@@ -4,9 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-has_many :comments, :class_name => "Comment"
-has_many :likes, :class_name => "Like"
-has_many :photos, :class_name => "Photo"
+validates :username, :presence => true, :uniqueness => true
+
+has_many :comments
+has_many :likes
+has_many :photos
 has_many :liked_photos, :through => :likes, :source => :photo
 
 end
